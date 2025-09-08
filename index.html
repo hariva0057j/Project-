@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Attendance Calculator - ClassTrack Pro</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container" id="appContainer" data-theme="light">
+    <header class="header" role="banner">
+      <div class="logo">
+        <img src="quirky-classtrack-logo.png" alt="Attendance Calculator Logo" class="logo-image" />
+        <h1 tabindex="0">Attendance Calculator</h1>
+      </div>
+      <button id="themeToggle" aria-label="Toggle dark/light mode" class="theme-toggle">🌙 Dark Mode</button>
+      <p class="subtitle">Keep track of your attendance and stay above specified threshold</p>
+    </header>
+
+    <main role="main">
+      <form id="calcForm" class="calc-form" aria-label="Calculate attendance form">
+        <div class="input-group">
+          <label for="totalClasses">Total Classes Held</label>
+          <input type="number" id="totalClasses" min="1" aria-required="true" />
+        </div>
+
+        <div class="input-group">
+          <label for="attended">Classes Attended</label>
+          <input type="number" id="attended" min="0" aria-required="true" />
+        </div>
+
+        <div class="input-group">
+          <label for="absent">Classes Absent</label>
+          <input type="number" id="absent" readonly aria-readonly="true" />
+        </div>
+
+        <div class="input-group">
+          <label for="thresholdSlider">Attendance Threshold: <span id="thresholdValue">75</span>%</label>
+          <input type="range" id="thresholdSlider" min="50" max="100" step="1" value="75" 
+            aria-label="Attendance threshold slider" />
+        </div>
+
+        <div class="button-group">
+          <button type="submit" class="btn-calculate">Calculate</button>
+          <button type="button" id="resetBtn" class="btn-reset">Reset</button>
+        </div>
+      </form>
+
+      <section id="resultsContainer" class="results-container" aria-live="polite" role="region" tabindex="0"></section>
+
+      <footer class="footer" tabindex="0">
+        Stay consistent with your attendance and succeed!
+      </footer>
+
+      <div class="developer-credit" tabindex="0">
+        <p>Made with <span class="heart" aria-label="love">♥</span> by a student, for students</p>
+      </div>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
